@@ -520,7 +520,7 @@
                 {
                     "action": "include",
                     "keywords": [
-                        "amy IPv4 HK|amy IPv4 JP|amy IPv4 SG|amy IPv4 TW"
+                        "amy HK|amy JP|amy SG|amy TW"
                     ]
                 }
             ],
@@ -538,7 +538,7 @@
                 {
                     "action": "include",
                     "keywords": [
-                        "cream IPv4 Hk|cream IPv4 JP|cream IPv4 SG|cream TW"
+                        "cream Hk|cream JP|cream SG|cream TW"
                     ]
                 }
             ],
@@ -556,7 +556,7 @@
                 {
                     "action": "include",
                     "keywords": [
-                        "dual-stack US"
+                        "dual-stack xier US"
                     ]
                 }
             ],
@@ -574,7 +574,7 @@
                 {
                     "action": "include",
                     "keywords": [
-                        "dual-stack TW"
+                        "dual-stack xier TW"
                     ]
                 }
             ],
@@ -592,7 +592,7 @@
                 {
                     "action": "include",
                     "keywords": [
-                        "dual-stack SG"
+                        "dual-stack xier SG"
                     ]
                 }
             ],
@@ -610,7 +610,7 @@
                 {
                     "action": "include",
                     "keywords": [
-                        "dual-stack JP"
+                        "dual-stack xier JP"
                     ]
                 }
             ],
@@ -628,7 +628,7 @@
                 {
                     "action": "include",
                     "keywords": [
-                        "dual-stack HK"
+                        "dual-stack xier HK"
                     ]
                 }
             ],
@@ -646,7 +646,7 @@
                 {
                     "action": "include",
                     "keywords": [
-                        "IPv4 US"
+                        "IPv4 amy US|IPv4 cream US"
                     ]
                 }
             ],
@@ -664,7 +664,7 @@
                 {
                     "action": "include",
                     "keywords": [
-                        "IPv4 TW"
+                        "IPv4 amy TW|IPv4 cream TW"
                     ]
                 }
             ],
@@ -682,7 +682,7 @@
                 {
                     "action": "include",
                     "keywords": [
-                        "IPv4 SG"
+                        "IPv4 amy SG|IPv4 cream SG"
                     ]
                 }
             ],
@@ -700,7 +700,7 @@
                 {
                     "action": "include",
                     "keywords": [
-                        "IPv4 JP"
+                        "IPv4 amy JP|IPv4 cream JP"
                     ]
                 }
             ],
@@ -718,7 +718,7 @@
                 {
                     "action": "include",
                     "keywords": [
-                        "IPv4 HK"
+                        "IPv4 amy HK|IPv4 cream HK"
                     ]
                 }
             ],
@@ -1156,7 +1156,7 @@
                 {
                     "action": "exclude",
                     "keywords": [
-                        "美国|🇺🇸|US|台湾|tw|TW|🇨🇳|日本|JP|🇯🇵|HK|香港|🇭🇰|新加坡|SG|🇸🇬|狮|Panel|订阅|流量|重置|ISP|到期|%"
+                        "美国|🇺🇸|US|台湾|tw|TW|🇨🇳|日本|JP|🇯🇵|HK|香港|🇭🇰|新加坡|SG|🇸🇬|狮"
                     ]
                 }
             ]
