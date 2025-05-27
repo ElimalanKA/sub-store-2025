@@ -40,8 +40,7 @@
         "rules": [
             {
                 "rule_set": [
-                    "category-ads-all",
-                    "adguard"
+                    "category-ads-all"
                 ],
                 "action": "reject",
                 "method": "drop"
@@ -104,7 +103,7 @@
           },
           {
             "type": "mixed",
-            "listen": "127.0.0.1",
+            "listen": "192.168.2.254",
             "listen_port": 7890
           }
     ],
@@ -556,7 +555,7 @@
                 "download_detour": "direct"
             },
             {
-                "tag": "primevideo",
+                "tag": "primevideo_domain",
                 "type": "remote",
                 "format": "binary",
                 "url": "https://fastly.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/primevideo.srs",
@@ -750,7 +749,6 @@
             "outbounds": [
                 "{all}"
             ],
-            "action": "route",
             "filter": [
                 {
                     "action": "include",
