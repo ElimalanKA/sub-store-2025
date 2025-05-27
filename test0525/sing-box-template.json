@@ -104,7 +104,7 @@
           },
           {
             "type": "mixed",
-            "listen": "192.168.2.254",
+            "listen": "127.0.0.1",
             "listen_port": 7890
           }
     ],
@@ -1249,6 +1249,46 @@
                     ]
                 }
             ]
+        },
+        {
+            "tag": "cn",
+            "type": "selector",
+            "outbounds": [
+                "proxy",
+                "ByteTW",
+                "US dual-stack",
+                "TW dual-stack",
+                "SG dual-stack",
+                "JP dual-stack",
+                "HK dual-stack",
+                "US IPv4",
+                "TW IPv4",
+                "JP IPv4",
+                "SG IPv4",
+                "Other IPv4/IPv6",
+                "direct"
+            ],
+            "default": "direct"
+        },
+        {
+            "tag": "final",
+            "type": "selector",
+            "outbounds": [
+                "proxy",
+                "ByteTW",
+                "US dual-stack",
+                "TW dual-stack",
+                "SG dual-stack",
+                "JP dual-stack",
+                "HK dual-stack",
+                "US IPv4",
+                "TW IPv4",
+                "JP IPv4",
+                "SG IPv4",
+                "Other IPv4/IPv6",
+                "direct"
+            ],
+            "default": "direct"
         },
         {
             "tag": "GLOBAL",
