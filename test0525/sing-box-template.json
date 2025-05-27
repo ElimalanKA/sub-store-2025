@@ -89,26 +89,24 @@
         {
             "type": "tun",
             "address": [
-                "172.19.0.0/30",
-                "fdfe:dcba:9876::0/126"
+              "172.19.0.0/30",
+              "fdfe:dcba:9876::0/126"
             ],
-            "stack": "system",
+            "stack": "mixed",
             "auto_route": true,
             "platform": {
-                "http_proxy": {
-                    "enabled": true,
-                    "server": "192.168.2.254",
-                    "server_port": 7890
-                }
-            },
-            "tag": "tun-in"
-        },
-        {
+              "http_proxy": {
+                "enabled": true,
+                "server": "192.168.2.254",
+                "server_port": 7890
+              }
+            }
+          },
+          {
             "type": "mixed",
             "listen": "192.168.2.254",
-            "listen_port": 7890,
-            "tag": "mixed-in"
-        }
+            "listen_port": 7890
+          }
     ],
     "route": {
         "default_domain_resolver": {
