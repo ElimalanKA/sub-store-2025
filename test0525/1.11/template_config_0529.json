@@ -6,7 +6,7 @@
   },
   "experimental": {
     "clash_api": {
-      "external_controller": "192.168.2.248:9090",
+      "external_controller": "192.168.2.254:9090",
       "external_ui": "/etc/sing-box/ui",
       "external_ui_download_url": "",
       "external_ui_download_detour": "",
@@ -618,7 +618,7 @@
           ]
         }
       ],
-      "url": "https://www.v2ex.com/generate_204",
+      "url": "https://www.youtube.com/generate_204",
       "interval": "3m",
       "tolerance": 50
     },
@@ -636,7 +636,7 @@
           ]
         }
       ],
-      "url": "https://www.v2ex.com/generate_204",
+      "url": "https://www.youtube.com/generate_204",
       "interval": "3m",
       "tolerance": 50
     },
@@ -654,8 +654,8 @@
           ]
         }
       ],
-      "url": "https://www.v2ex.com/generate_204",
-      "interval": "1m",
+      "url": "https://www.youtube.com/generate_204",
+      "interval": "3m",
       "tolerance": 50
     },
     {
@@ -672,8 +672,8 @@
           ]
         }
       ],
-      "url": "https://www.v2ex.com/generate_204",
-      "interval": "1m",
+      "url": "https://www.youtube.com/generate_204",
+      "interval": "3m",
       "tolerance": 50
     },
     {
@@ -690,8 +690,8 @@
           ]
         }
       ],
-      "url": "https://www.v2ex.com/generate_204",
-      "interval": "1m",
+      "url": "https://www.youtube.com/generate_204",
+      "interval": "3m",
       "tolerance": 50
     },
     {
@@ -708,8 +708,8 @@
           ]
         }
       ],
-      "url": "https://www.v2ex.com/generate_204",
-      "interval": "1m",
+      "url": "https://www.youtube.com/generate_204",
+      "interval": "3m",
       "tolerance": 50
     },
     {
@@ -726,8 +726,8 @@
           ]
         }
       ],
-      "url": "https://www.v2ex.com/generate_204",
-      "interval": "1m",
+      "url": "https://www.youtube.com/generate_204",
+      "interval": "3m",
       "tolerance": 50
     },
     {
@@ -744,8 +744,8 @@
           ]
         }
       ],
-      "url": "https://www.v2ex.com/generate_204",
-      "interval": "1m",
+      "url": "https://www.youtube.com/generate_204",
+      "interval": "3m",
       "tolerance": 50
     },
     {
@@ -762,8 +762,8 @@
           ]
         }
       ],
-      "url": "https://www.v2ex.com/generate_204",
-      "interval": "1m",
+      "url": "https://www.youtube.com/generate_204",
+      "interval": "3m",
       "tolerance": 50
     },
     {
@@ -780,8 +780,8 @@
           ]
         }
       ],
-      "url": "https://www.v2ex.com/generate_204",
-      "interval": "1m",
+      "url": "https://www.youtube.com/generate_204",
+      "interval": "3m",
       "tolerance": 50
     },
     {
@@ -798,8 +798,8 @@
           ]
         }
       ],
-      "url": "https://www.v2ex.com/generate_204",
-      "interval": "1m",
+      "url": "https://www.youtube.com/generate_204",
+      "interval": "3m",
       "tolerance": 50
     },
     {
@@ -816,8 +816,8 @@
           ]
         }
       ],
-      "url": "https://www.v2ex.com/generate_204",
-      "interval": "1m",
+      "url": "https://www.youtube.com/generate_204",
+      "interval": "3m",
       "tolerance": 50
     },
     {
@@ -834,8 +834,8 @@
           ]
         }
       ],
-      "url": "https://www.v2ex.com/generate_204",
-      "interval": "1m",
+      "url": "https://www.youtube.com/generate_204",
+      "interval": "3m",
       "tolerance": 50
     },
     {
@@ -852,8 +852,8 @@
           ]
         }
       ],
-      "url": "https://www.v2ex.com/generate_204",
-      "interval": "1m",
+      "url": "https://www.youtube.com/generate_204",
+      "interval": "3m",
       "tolerance": 50
     },
     {
