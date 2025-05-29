@@ -6,7 +6,7 @@
   },
   "experimental": {
     "clash_api": {
-      "external_controller": "192.168.2.254:9090",
+      "external_controller": "192.168.2.248:9090",
       "external_ui": "/etc/sing-box/ui",
       "external_ui_download_url": "",
       "external_ui_download_detour": "",
@@ -585,268 +585,283 @@
   },
   "outbounds": [
     {
-      "type": "direct",
-      "udp_fragment": true,
-      "tag": "direct"
-    },
-    {
       "tag": "proxy",
       "type": "selector",
       "outbounds": [
-          "ByteTW",
-          "US dual-stack",
-          "TW dual-stack",
-          "SG dual-stack",
-          "JP dual-stack",
-          "HK dual-stack",
-          "US IPv4",
-          "TW IPv4",
-          "JP IPv4",
-          "SG IPv4",
-          "Other IPv4/IPv6",
-          "direct"
+        "BygeUS",
+        "ByteTW",
+        "US dual-stack",
+        "TW dual-stack",
+        "SG dual-stack",
+        "JP dual-stack",
+        "HK dual-stack",
+        "US IPv4",
+        "TW IPv4",
+        "JP IPv4",
+        "SG IPv4",
+        "Other IPv4/IPv6",
+        "direct"
       ],
       "default": "ByteTW"
-  },
-  {
-      "tag": "ByteTW",
+    },
+    {
+      "tag": "BygeUS",
       "type": "urltest",
       "outbounds": [
-          "{all}"
+        "{all}"
       ],
       "filter": [
-          {
-              "action": "include",
-              "keywords": [
-                  "bytetw"
-              ]
-          }
+        {
+          "action": "include",
+          "keywords": [
+            "bygeUS"
+          ]
+        }
       ],
       "url": "https://www.v2ex.com/generate_204",
       "interval": "3m",
       "tolerance": 50
-  },
-  {
+    },
+    {
+      "tag": "ByteTW",
+      "type": "urltest",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "bytetw"
+          ]
+        }
+      ],
+      "url": "https://www.v2ex.com/generate_204",
+      "interval": "3m",
+      "tolerance": 50
+    },
+    {
       "tag": "amy[asia]",
       "type": "urltest",
       "outbounds": [
-          "{all}"
+        "{all}"
       ],
       "filter": [
-          {
-              "action": "include",
-              "keywords": [
-                  "amy HK|amy JP|amy SG|amy TW"
-              ]
-          }
+        {
+          "action": "include",
+          "keywords": [
+            "amy HK|amy JP|amy SG|amy TW"
+          ]
+        }
       ],
       "url": "https://www.v2ex.com/generate_204",
       "interval": "1m",
       "tolerance": 50
-  },
-  {
+    },
+    {
       "tag": "cream[asia]",
       "type": "urltest",
       "outbounds": [
-          "{all}"
+        "{all}"
       ],
       "filter": [
-          {
-              "action": "include",
-              "keywords": [
-                  "cream Hk|cream JP|cream SG|cream TW"
-              ]
-          }
+        {
+          "action": "include",
+          "keywords": [
+            "cream Hk|cream JP|cream SG|cream TW"
+          ]
+        }
       ],
       "url": "https://www.v2ex.com/generate_204",
       "interval": "1m",
       "tolerance": 50
-  },
-  {
+    },
+    {
       "tag": "US dual-stack",
       "type": "urltest",
       "outbounds": [
-          "{all}"
+        "{all}"
       ],
       "filter": [
-          {
-              "action": "include",
-              "keywords": [
-                  "dual-stack xier US"
-              ]
-          }
+        {
+          "action": "include",
+          "keywords": [
+            "dual-stack bygeUS|dual-stack xier US"
+          ]
+        }
       ],
       "url": "https://www.v2ex.com/generate_204",
       "interval": "1m",
       "tolerance": 50
-  },
-  {
+    },
+    {
       "tag": "TW dual-stack",
       "type": "urltest",
       "outbounds": [
-          "{all}"
+        "{all}"
       ],
       "filter": [
-          {
-              "action": "include",
-              "keywords": [
-                  "dual-stack xier TW"
-              ]
-          }
+        {
+          "action": "include",
+          "keywords": [
+            "dual-stack bytetw|dual-stack xier TW"
+          ]
+        }
       ],
       "url": "https://www.v2ex.com/generate_204",
       "interval": "1m",
       "tolerance": 50
-  },
-  {
+    },
+    {
       "tag": "SG dual-stack",
       "type": "urltest",
       "outbounds": [
-          "{all}"
+        "{all}"
       ],
       "filter": [
-          {
-              "action": "include",
-              "keywords": [
-                  "dual-stack xier SG"
-              ]
-          }
+        {
+          "action": "include",
+          "keywords": [
+            "dual-stack xier SG"
+          ]
+        }
       ],
       "url": "https://www.v2ex.com/generate_204",
       "interval": "1m",
       "tolerance": 50
-  },
-  {
+    },
+    {
       "tag": "JP dual-stack",
       "type": "urltest",
       "outbounds": [
-          "{all}"
+        "{all}"
       ],
       "filter": [
-          {
-              "action": "include",
-              "keywords": [
-                  "dual-stack xier JP"
-              ]
-          }
+        {
+          "action": "include",
+          "keywords": [
+            "dual-stack xier JP"
+          ]
+        }
       ],
       "url": "https://www.v2ex.com/generate_204",
       "interval": "1m",
       "tolerance": 50
-  },
-  {
+    },
+    {
       "tag": "HK dual-stack",
       "type": "urltest",
       "outbounds": [
-          "{all}"
+        "{all}"
       ],
       "filter": [
-          {
-              "action": "include",
-              "keywords": [
-                  "dual-stack xier HK"
-              ]
-          }
+        {
+          "action": "include",
+          "keywords": [
+            "dual-stack xier HK"
+          ]
+        }
       ],
       "url": "https://www.v2ex.com/generate_204",
       "interval": "1m",
       "tolerance": 50
-  },
-  {
+    },
+    {
       "tag": "US IPv4",
       "type": "urltest",
       "outbounds": [
-          "{all}"
+        "{all}"
       ],
       "filter": [
-          {
-              "action": "include",
-              "keywords": [
-                  "IPv4 amy US|IPv4 cream US"
-              ]
-          }
+        {
+          "action": "include",
+          "keywords": [
+            "IPv4 amy US|IPv4 cream US"
+          ]
+        }
       ],
       "url": "https://www.v2ex.com/generate_204",
       "interval": "1m",
       "tolerance": 50
-  },
-  {
+    },
+    {
       "tag": "TW IPv4",
       "type": "urltest",
       "outbounds": [
-          "{all}"
+        "{all}"
       ],
       "filter": [
-          {
-              "action": "include",
-              "keywords": [
-                  "IPv4 amy TW|IPv4 cream TW"
-              ]
-          }
+        {
+          "action": "include",
+          "keywords": [
+            "IPv4 amy TW|IPv4 cream TW"
+          ]
+        }
       ],
       "url": "https://www.v2ex.com/generate_204",
       "interval": "1m",
       "tolerance": 50
-  },
-  {
+    },
+    {
       "tag": "SG IPv4",
       "type": "urltest",
       "outbounds": [
-          "{all}"
+        "{all}"
       ],
       "filter": [
-          {
-              "action": "include",
-              "keywords": [
-                  "IPv4 amy SG|IPv4 cream SG"
-              ]
-          }
+        {
+          "action": "include",
+          "keywords": [
+            "IPv4 amy SG|IPv4 cream SG"
+          ]
+        }
       ],
       "url": "https://www.v2ex.com/generate_204",
       "interval": "1m",
       "tolerance": 50
-  },
-  {
+    },
+    {
       "tag": "JP IPv4",
       "type": "urltest",
       "outbounds": [
-          "{all}"
+        "{all}"
       ],
       "filter": [
-          {
-              "action": "include",
-              "keywords": [
-                  "IPv4 amy JP|IPv4 cream JP"
-              ]
-          }
+        {
+          "action": "include",
+          "keywords": [
+            "IPv4 amy JP|IPv4 cream JP"
+          ]
+        }
       ],
       "url": "https://www.v2ex.com/generate_204",
       "interval": "1m",
       "tolerance": 50
-  },
-  {
+    },
+    {
       "tag": "HK IPv4",
       "type": "urltest",
       "outbounds": [
-          "{all}"
+        "{all}"
       ],
       "filter": [
-          {
-              "action": "include",
-              "keywords": [
-                  "IPv4 amy HK|IPv4 cream HK"
-              ]
-          }
+        {
+          "action": "include",
+          "keywords": [
+            "IPv4 amy HK|IPv4 cream HK"
+          ]
+        }
       ],
       "url": "https://www.v2ex.com/generate_204",
       "interval": "1m",
       "tolerance": 50
-  },
+    },
     {
       "tag": "Google",
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -867,6 +882,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -887,6 +903,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -907,6 +924,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -926,6 +944,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -946,6 +965,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -966,6 +986,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -986,6 +1007,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -1006,6 +1028,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -1026,6 +1049,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -1046,6 +1070,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -1065,6 +1090,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -1085,6 +1111,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -1105,6 +1132,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -1133,6 +1161,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -1153,6 +1182,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -1173,6 +1203,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -1193,6 +1224,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -1213,6 +1245,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -1233,6 +1266,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -1253,6 +1287,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -1272,6 +1307,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -1292,6 +1328,7 @@
       "type": "selector",
       "outbounds": [
         "proxy",
+        "BygeUS",
         "ByteTW",
         "US dual-stack",
         "TW dual-stack",
@@ -1308,19 +1345,23 @@
       "default": "direct"
     },
     {
-        "tag": "Other IPv4/IPv6",
-        "type": "selector",
-        "outbounds": [
-            "{all}"
-        ],
-        "filter": [
-            {
-                "action": "exclude",
-                "keywords": [
-                    "美国|🇺🇸|US|台湾|tw|TW|🇨🇳|日本|JP|🇯🇵|HK|香港|🇭🇰|新加坡|SG|🇸🇬|狮"
-                ]
-            }
-        ]
+      "tag": "Other IPv4/IPv6",
+      "type": "selector",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "exclude",
+          "keywords": [
+            "美国|🇺🇸|US|台湾|tw|TW|🇨🇳|日本|JP|🇯🇵|HK|香港|🇭🇰|新加坡|SG|🇸🇬|狮"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
     }
   ]
 }
