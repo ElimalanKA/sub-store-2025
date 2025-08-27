@@ -20,14 +20,6 @@ else
 fi
 echo "📦 当前运行版本: ${LOCAL_VERSION}"
 
-# 🌐 GitHub 可达性检测与镜像切换
-GH_BASE="https://github.com"
-echo "🌐 正在检测 GitHub 连接..."
-if ! curl -s --connect-timeout 10 https://github.com >/dev/null; then
-    echo "⚠️ GitHub 无法访问，尝试使用 ghproxy 镜像源"
-    GH_BASE="https://ghproxy.com/https://github.com"
-fi
-
 # 📋 操作菜单
 echo
 echo "请选择操作："
@@ -38,22 +30,23 @@ echo "4. 检查是否需要升级到最新稳定版"
 echo "5. 卸载 sing-box"
 read -rp "输入选项 [1/2/3/4/5]: " OPTION
 
+# 🇨🇳 使用国内镜像源
+GH_API="https://download.fastgit.org/SagerNet/sing-box/releases"
+GH_RAW="https://download.fastgit.org/SagerNet/sing-box/releases/download"
+
 # 🎯 版本选择逻辑
 case "$OPTION" in
     1)
-        VERSION=$(curl -s "${GH_BASE}/SagerNet/sing-box/releases/latest" \
-            | grep tag_name | cut -d ":" -f2 | sed 's/\"//g;s/\,//g;s/\ //g;s/v//')
+        VERSION=$(curl -s "${GH_API}/latest" | grep tag_name | cut -d ":" -f2 | sed 's/\"//g;s/\,//g;s/\ //g;s/v//')
         ;;
     2)
-        VERSION=$(curl -s "${GH_BASE}/SagerNet/sing-box/releases?per_page=1&page=0" \
-            | grep tag_name | head -n1 | cut -d ":" -f2 | sed 's/\"//g;s/\,//g;s/\ //g;s/v//')
+        VERSION=$(curl -s "${GH_API}?per_page=1&page=0" | grep tag_name | head -n1 | cut -d ":" -f2 | sed 's/\"//g;s/\,//g;s/\ //g;s/v//')
         ;;
     3)
         read -rp "请输入你要安装的版本号（例如 1.11.0）: " VERSION
         ;;
     4)
-        VERSION=$(curl -s "${GH_BASE}/SagerNet/sing-box/releases/latest" \
-            | grep tag_name | cut -d ":" -f2 | sed 's/\"//g;s/\,//g;s/\ //g;s/v//')
+        VERSION=$(curl -s "${GH_API}/latest" | grep tag_name | cut -d ":" -f2 | sed 's/\"//g;s/\,//g;s/\ //g;s/v//')
         if [ "$LOCAL_VERSION" != "$VERSION" ]; then
             echo "🔄 发现新版本: ${VERSION}，准备更新"
         else
@@ -83,7 +76,7 @@ if [ -f /etc/sing-box/config.json ]; then
 fi
 
 # ⬇️ 下载并安装 .deb 包
-DEB_URL="${GH_BASE}/SagerNet/sing-box/releases/download/v${VERSION}/sing-box_${VERSION}_linux_${ARCH}.deb"
+DEB_URL="${GH_RAW}/v${VERSION}/sing-box_${VERSION}_linux_${ARCH}.deb"
 echo "⬇️ 正在下载: ${DEB_URL}"
 curl -Lo sing-box.deb "$DEB_URL" || { echo "❌ 下载失败，请检查网络或手动下载"; exit 1; }
 
