@@ -1,46 +1,39 @@
 #!/bin/bash
-
-# mihomo installer/uninstaller for Linux
-# Author: Copilot for Tia
-
 set -e
 
+BIN_NAME="mihomo"
 INSTALL_DIR="/usr/local/bin"
 TMP_DIR="/tmp/mihomo_install"
-BIN_NAME="mihomo"
-REPO_API="https://api.github.com/repos/MetaCubeX/mihomo/releases/latest"
+REPO="MetaCubeX/mihomo"
+REPO_API="https://api.github.com/repos/${REPO}/releases"
 
 detect_arch() {
-  ARCH=$(uname -m)
-  case "$ARCH" in
+  case "$(uname -m)" in
     x86_64) echo "amd64" ;;
     aarch64) echo "arm64" ;;
     armv7l|armv6l) echo "armv7" ;;
-    *) echo "Unsupported architecture: $ARCH" && exit 1 ;;
+    *) echo "Unsupported architecture" && exit 1 ;;
   esac
 }
 
 get_latest_version() {
-  curl -s "$REPO_API" | grep -oP '"tag_name": "\K(.*)(?=")'
+  curl -s "${REPO_API}/latest" | grep -oP '"tag_name": "\K(.*)(?=")'
 }
 
 download_binary() {
   ARCH=$(detect_arch)
-  VERSION=$(get_latest_version)
-  FILE_NAME="${BIN_NAME}-linux-${ARCH}"
-  URL="https://github.com/MetaCubeX/mihomo/releases/download/${VERSION}/${FILE_NAME}.tar.gz"
+  VERSION="$1"
+  FILE="${BIN_NAME}-linux-${ARCH}.tar.gz"
+  URL="https://github.com/${REPO}/releases/download/${VERSION}/${FILE}"
 
-  echo "📦 下载 $FILE_NAME ($VERSION)..."
+  echo "📦 下载 $BIN_NAME $VERSION ($ARCH)..."
   mkdir -p "$TMP_DIR"
-  curl -L "$URL" -o "$TMP_DIR/${FILE_NAME}.tar.gz"
-
-  echo "📂 解压..."
-  tar -xzf "$TMP_DIR/${FILE_NAME}.tar.gz" -C "$TMP_DIR"
+  curl -L "$URL" -o "$TMP_DIR/$FILE"
+  tar -xzf "$TMP_DIR/$FILE" -C "$TMP_DIR"
   chmod +x "$TMP_DIR/$BIN_NAME"
 }
 
 install_binary() {
-  echo "🚀 安装 mihomo 到 $INSTALL_DIR ..."
   sudo mv "$TMP_DIR/$BIN_NAME" "$INSTALL_DIR/$BIN_NAME"
   echo "✅ 安装完成：$(which mihomo)"
 }
@@ -58,7 +51,8 @@ cleanup() {
 main() {
   case "$1" in
     install)
-      download_binary
+      VERSION="${2:-$(get_latest_version)}"
+      download_binary "$VERSION"
       install_binary
       cleanup
       ;;
@@ -66,7 +60,7 @@ main() {
       uninstall_binary
       ;;
     *)
-      echo "用法: $0 {install|uninstall}"
+      echo "用法: $0 install [版本号] | uninstall"
       exit 1
       ;;
   esac
