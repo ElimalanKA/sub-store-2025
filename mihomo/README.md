@@ -2,12 +2,19 @@
 
 安装最新版 mihomo
 
-bash <(curl -fsSL https://raw.githubusercontent.com/ElimalanKA/sub-store-2025/main/mihomo/inst.sh) install
+可直接复制以下链接（原始脚本的 raw 链接）：
+
+https://raw.githubusercontent.com/ElimalanKA/sub-store-2025/main/mihomo/inst.sh
+
+或复制并直接运行（先下载脚本再执行）：
+
+curl -fsSL -o inst.sh https://raw.githubusercontent.com/ElimalanKA/sub-store-2025/main/mihomo/inst.sh && bash inst.sh install
+
 安装指定版本（例如 v1.19.14）
 
-bash <(curl -fsSL https://raw.githubusercontent.com/ElimalanKA/sub-store-2025/main/mihomo/inst.sh) install v1.19.14
+curl -fsSL -o inst.sh https://raw.githubusercontent.com/ElimalanKA/sub-store-2025/main/mihomo/inst.sh && bash inst.sh install v1.19.14
 
 
 卸载 mihomo
 
-bash <(curl -fsSL https://raw.githubusercontent.com/ElimalanKA/sub-store-2025/main/mihomo
+curl -fsSL -o inst.sh https://raw.githubusercontent.com/ElimalanKA/sub-store-2025/main/mihomo/inst.sh && bash inst.sh uninstall
