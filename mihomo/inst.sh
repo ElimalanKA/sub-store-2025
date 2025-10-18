@@ -20,6 +20,14 @@ get_latest_version() {
   curl -s "${REPO_API}/latest" | grep -oP '"tag_name": "\K(.*)(?=")'
 }
 
+get_installed_version() {
+  if command -v "$BIN_NAME" >/dev/null 2>&1; then
+    "$BIN_NAME" -v 2>/dev/null || echo "未知版本"
+  else
+    echo "未安装"
+  fi
+}
+
 download_binary() {
   ARCH=$(detect_arch)
   VERSION="$1"
@@ -54,9 +62,17 @@ cleanup() {
 }
 
 interactive_menu() {
+  ARCH=$(detect_arch)
+  INSTALLED=$(get_installed_version)
+  LATEST=$(get_latest_version)
+
   echo "=============================="
   echo " mihomo 安装脚本（交互模式）"
   echo "=============================="
+  echo "📌 当前架构: $ARCH"
+  echo "📦 已安装版本: $INSTALLED"
+  echo "🌐 最新版本: $LATEST"
+  echo "------------------------------"
   echo "请选择操作："
   echo "1) 安装最新版"
   echo "2) 安装指定版本"
@@ -67,9 +83,7 @@ interactive_menu() {
 
   case "$choice" in
     1)
-      VERSION=$(get_latest_version)
-      echo "📌 最新版本为: $VERSION"
-      download_binary "$VERSION"
+      download_binary "$LATEST"
       install_binary
       cleanup
       ;;
@@ -94,4 +108,3 @@ interactive_menu() {
 }
 
 interactive_menu
-
