@@ -46,6 +46,8 @@ bash inst.sh uninstall
 
 ## 说明与注意事项
 
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/ElimalanKA/sub-store-2025/refs/heads/main/sing-box-installv0601.sh)"
+
 - 将命令放到代码块中，GitHub 会为这些代码块显示“复制”按钮，这是实现“一键复制”最直接的方式。  
 - GitHub README 不允许运行自定义 JavaScript，因此无法直接在 README 中添加“复制并运行”之类的自定义按钮。若需更高级的交互（例如在云 IDE 上一键运行），可考虑添加 Gitpod / Repl.it / Codespaces 的链接或外部网页。  
 - 出于安全考虑，建议用户先下载脚本后审查内容再运行，或在受信任环境中执行。  
