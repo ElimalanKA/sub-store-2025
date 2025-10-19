@@ -19,7 +19,9 @@ bash inst.sh install
 ```
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/ElimalanKA/sub-store-2025/refs/heads/main/mihomo/install-mihomo.sh
+curl -fsSL https://raw.githubusercontent.com/ElimalanKA/sub-store-2025/refs/heads/main/mihomo/install-mihomo.sh -o install-mihomo.sh
+chmod +x install-mihomo.sh
+./install-mihomo.sh
 ```
 
 一行快捷执行（风险高 — 会立即执行远程脚本）：
